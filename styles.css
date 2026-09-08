@@ -1,10 +1,8 @@
 :root {
-  color-scheme: light;
-  font-family:
-    Pretendard, "Noto Sans KR", system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
-  color: #202124;
-  background: #f6f7f9;
+  font-family: Arial, "Noto Sans KR", sans-serif;
+  color: #171717;
+  background: #f3f1ec;
+  font-synthesis: none;
 }
 
 * {
@@ -12,71 +10,135 @@
 }
 
 body {
-  max-width: 72rem;
-  min-height: 100vh;
+  width: min(100% - 2rem, 76rem);
   margin: 0 auto;
-  padding: clamp(2rem, 6vw, 5rem) clamp(1.25rem, 4vw, 3rem);
 }
 
 .site-header {
-  max-width: 46rem;
-  margin-bottom: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 5rem;
+  border-bottom: 1px solid #171717;
+  font-size: 0.85rem;
 }
 
-.eyebrow,
-.project-status {
-  margin: 0 0 0.75rem;
-  color: #59636e;
-  font-size: 0.8rem;
+.site-header p {
+  margin: 0;
+  color: #696762;
+}
+
+.name {
+  color: inherit;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  text-decoration: none;
+}
+
+.project {
+  display: grid;
+  grid-template-columns: minmax(3rem, 0.45fr) 4fr;
+  padding: clamp(2.5rem, 7vw, 6rem) 0;
+}
+
+.project-index {
+  padding-top: 0.6rem;
+  color: #696762;
+  font-size: 0.75rem;
+}
+
+.project-heading {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.meta {
+  margin: 0 0 1rem;
+  color: #696762;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-h1,
-h2,
-p {
-  margin-top: 0;
-}
-
 h1 {
-  margin-bottom: 1rem;
-  font-size: clamp(2.5rem, 8vw, 5.5rem);
-  line-height: 0.95;
-  letter-spacing: -0.055em;
+  margin: 0;
+  font-size: clamp(3.5rem, 10vw, 8.5rem);
+  font-weight: 700;
+  line-height: 0.85;
+  letter-spacing: -0.075em;
 }
 
-.intro {
-  color: #59636e;
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  line-height: 1.7;
+.status {
+  flex: 0 0 auto;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #aaa69e;
+  border-radius: 999px;
+  color: #55524d;
+  font-size: 0.75rem;
 }
 
-.project-grid {
+.summary {
+  max-width: 42rem;
+  margin: clamp(3rem, 8vw, 7rem) 0 4rem;
+  font-size: clamp(1.4rem, 3vw, 2.25rem);
+  line-height: 1.45;
+  letter-spacing: -0.035em;
+  word-break: keep-all;
+}
+
+.details {
+  margin: 0;
+  border-top: 1px solid #aaa69e;
+}
+
+.details div {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  grid-template-columns: minmax(6rem, 1fr) 3fr;
   gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #aaa69e;
 }
 
-.project-card {
-  min-height: 15rem;
-  padding: 1.5rem;
-  border: 1px solid #dfe3e8;
-  border-radius: 1rem;
-  background: #ffffff;
+dt {
+  color: #696762;
+  font-size: 0.75rem;
+  text-transform: uppercase;
 }
 
-.project-card h2 {
-  font-size: 1.4rem;
+dd {
+  margin: 0;
+  font-size: 0.95rem;
 }
 
-.project-card p:last-child,
-footer {
-  color: #6b747e;
-  line-height: 1.65;
+.project-link {
+  display: inline-block;
+  margin-top: 2.5rem;
+  border-bottom: 1px solid currentColor;
+  color: inherit;
+  font-size: 0.9rem;
+  line-height: 1.8;
+  text-decoration: none;
 }
 
-footer {
-  margin-top: 4rem;
-  font-size: 0.85rem;
+.project-link:hover {
+  opacity: 0.55;
+}
+
+@media (max-width: 38rem) {
+  .project {
+    grid-template-columns: 1fr;
+  }
+
+  .project-index {
+    margin-bottom: 2rem;
+  }
+
+  .project-heading {
+    gap: 1rem;
+  }
+
+  .details div {
+    grid-template-columns: 5rem 1fr;
+  }
 }

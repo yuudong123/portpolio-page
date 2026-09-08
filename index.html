@@ -3,31 +3,64 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="프로젝트와 작업 결과를 모아 소개하는 포트폴리오 아카이브"
-    />
-    <title>Project Archive</title>
+    <meta name="description" content="조현재의 프로젝트 기록" />
+    <title>조현재 — Projects</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <header class="site-header">
-      <p class="eyebrow">Portfolio</p>
-      <h1>Project Archive</h1>
-      <p class="intro">프로젝트와 작업 결과를 한곳에 정리하는 공간입니다.</p>
+      <a class="name" href="./">조현재</a>
+      <p>Projects</p>
     </header>
 
-    <main class="project-grid" aria-label="프로젝트 목록">
-      <!-- 프로젝트 정보가 확정되면 이 카드를 복사해 내용을 채웁니다. -->
-      <article class="project-card">
-        <p class="project-status">Coming soon</p>
-        <h2>프로젝트 준비 중</h2>
-        <p>프로젝트 소개와 결과물을 순차적으로 추가할 예정입니다.</p>
+    <main>
+      <article class="project">
+        <div class="project-index" aria-hidden="true">01</div>
+
+        <div class="project-body">
+          <div class="project-heading">
+            <div>
+              <p class="meta">Team project · 2026.08—09</p>
+              <h1>HydroTwin</h1>
+            </div>
+            <span class="status">완료</span>
+          </div>
+
+          <p class="summary">
+            3대의 유압 설비에서 생성되는 17개 센서 데이터를 실시간으로
+            분석하고, 부품 상태와 이상 판단 근거를 대시보드와 3D 디지털
+            트윈으로 보여주는 설비 모니터링 시스템.
+          </p>
+
+          <dl class="details">
+            <div>
+              <dt>Role</dt>
+              <dd>Unity WebGL · 대시보드 UI · 전체 시스템 통합</dd>
+            </div>
+            <div>
+              <dt>Team</dt>
+              <dd>4명</dd>
+            </div>
+            <div>
+              <dt>Stack</dt>
+              <dd>Unity · FastAPI · Kafka · LightGBM · Docker · Jenkins</dd>
+            </div>
+            <div>
+              <dt>Built</dt>
+              <dd>실시간 3설비 모니터링 · 이상 상세 분석 · 자동 재배포</dd>
+            </div>
+          </dl>
+
+          <a
+            class="project-link"
+            href="https://github.com/yuudong123/ai-first-project"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub에서 보기 <span aria-hidden="true">↗</span>
+          </a>
+        </div>
       </article>
     </main>
-
-    <footer>
-      <p>Built as a growing archive of work.</p>
-    </footer>
   </body>
 </html>
