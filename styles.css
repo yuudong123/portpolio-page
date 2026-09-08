@@ -214,12 +214,17 @@ dd {
 }
 
 .case-label {
-  grid-row: 1 / span 3;
+  grid-column: 1;
+  grid-row: 1;
   margin: 0;
   color: #696762;
   font-size: 0.7rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+}
+
+.case-section > :not(.case-label) {
+  grid-column: 2;
 }
 
 .case-section h3 {
@@ -322,7 +327,12 @@ dd {
   }
 
   .case-label {
+    grid-column: 1;
     grid-row: auto;
     margin-bottom: 0.75rem;
+  }
+
+  .case-section > :not(.case-label) {
+    grid-column: 1;
   }
 }
