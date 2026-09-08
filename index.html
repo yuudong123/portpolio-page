@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="조현재의 프로젝트 기록" />
     <title>조현재 — Projects</title>
-    <link rel="stylesheet" href="./styles.css?v=5" />
+    <link rel="stylesheet" href="./styles.css?v=6" />
   </head>
   <body>
     <header class="site-header">
@@ -77,6 +77,51 @@
             </div>
           </dl>
 
+          <div class="case-study">
+            <section class="case-section">
+              <p class="case-label">What I did</p>
+              <h3>담당 작업</h3>
+              <ul class="work-list">
+                <li>설비 3대의 상태를 한 화면에서 확인하는 Unity WebGL 디지털 트윈 구성</li>
+                <li>이상 감지 상세 팝업과 주요 영향 센서 그래프를 포함한 대시보드 UI 작업</li>
+                <li>Kafka · FastAPI · Web · Unity로 이어지는 전체 흐름 통합과 시연 환경 안정화</li>
+              </ul>
+            </section>
+
+            <section class="case-section">
+              <p class="case-label">Troubleshooting 01</p>
+              <h3>작은 데이터셋으로 실시간 시연까지 연결하기</h3>
+              <p>
+                강의실 컴퓨터 사양으로는 대형 데이터셋을 학습하기 어려웠다.
+                사용할 수 있는 유압 센서 데이터는 상태 예측 모델 학습에 모두
+                활용하고, 별도의 시계열 생성 LSTM 모델을 추가하는 방향을 택했다.
+              </p>
+              <p>
+                LSTM이 17개 센서의 시간 흐름을 학습해 가상의 실시간 데이터를
+                만들도록 구성했다. 덕분에 제한된 학습 환경에서도 세 설비의
+                데이터가 계속 유입되고, 예측부터 대시보드와 디지털 트윈까지
+                이어지는 전체 흐름을 시연할 수 있었다.
+              </p>
+            </section>
+
+            <section class="case-section">
+              <p class="case-label">Troubleshooting 02</p>
+              <h3>AI 에이전트로 흐트러진 개발환경 복구하기</h3>
+              <p>
+                협업 과정에서 목적이 분명하지 않은 디렉터리와 파일이 반복해서
+                추가되면서, 미리 정한 Git · Jenkins · MLOps 구조와 실제 환경이
+                어긋나는 일이 생겼다. 문제가 생긴 지점을 문서와 비교해 하나씩
+                설명하고, 담당 팀원과 함께 개발환경을 다시 정리했다.
+              </p>
+              <p>
+                이후에는 에이전트에게 기획과 작업 목적을 먼저 명확히 전달하고,
+                생성된 코드와 환경 변경을 반드시 사람이 확인한 뒤 반영하는
+                원칙을 공유했다. AI를 빠르게 쓰는 것보다 결과를 검증할 수 있는
+                작업 기준을 세우는 일이 먼저라는 점을 배웠다.
+              </p>
+            </section>
+          </div>
+
           <a
             class="project-link"
             href="https://github.com/yuudong123/ai-first-project"
@@ -127,6 +172,42 @@
               <dd>Google Play 10만+ 다운로드</dd>
             </div>
           </dl>
+
+          <div class="case-study">
+            <section class="case-section">
+              <p class="case-label">What I did</p>
+              <h3>담당 작업</h3>
+              <ul class="work-list">
+                <li>Java 기반 Android 애플리케이션 유지보수와 기능·UI 업데이트</li>
+                <li>Spring Boot API 연동 확인과 MySQL 데이터 점검</li>
+                <li>Postman과 실기기를 활용한 오류 재현 및 업데이트 검증</li>
+              </ul>
+            </section>
+
+            <section class="case-section">
+              <p class="case-label">Troubleshooting</p>
+              <h3>사내에서는 재현되지 않던 특정 기종 오류 찾기</h3>
+              <p>
+                별점이 떨어지고 오류 리뷰가 올라왔지만, QA와 사내 테스트에서는
+                같은 문제가 전혀 발생하지 않았다. 막연히 사용자 실수로 판단하지
+                않고, 문제가 발생한 사용자들에게 연락해도 되는지 먼저 양해를
+                구한 뒤 사용 환경 정보를 모았다.
+              </p>
+              <p>
+                확인된 사용자 대부분이 어르신이라는 공통점에서 오래된 기기나
+                효도폰 문제일 수 있다는 가설을 세웠다. 기종 정보를 추가로
+                수집하자 오류가 특정 모델에 집중되어 있었고, 같은 Android
+                버전이어도 기기에 따라 One UI 버전이 다를 수 있다는 사실을
+                확인했다.
+              </p>
+              <p>
+                해당 기종을 중고로 직접 구해 마침내 오류를 재현했고, 그 환경을
+                기준으로 수정안을 검증해 해결했다. 재현이 안 되는 문제일수록
+                리뷰 문장만 보는 대신 사용자 특성에서 가설을 세우고, 기기와 OS
+                환경을 단계적으로 좁혀야 한다는 점이 가장 기억에 남았다.
+              </p>
+            </section>
+          </div>
 
           <a
             class="project-link"
