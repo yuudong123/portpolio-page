@@ -40,6 +40,10 @@ body {
   padding: clamp(2.5rem, 7vw, 6rem) 0;
 }
 
+.project + .project {
+  border-top: 1px solid #171717;
+}
+
 .project-index {
   padding-top: 0.6rem;
   color: #696762;
@@ -61,12 +65,16 @@ body {
   text-transform: uppercase;
 }
 
-h1 {
+.project-title {
   margin: 0;
   font-size: clamp(3.5rem, 10vw, 8.5rem);
   font-weight: 700;
   line-height: 0.85;
   letter-spacing: -0.075em;
+}
+
+.project-title--ko {
+  letter-spacing: -0.085em;
 }
 
 .status {
