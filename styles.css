@@ -78,6 +78,28 @@ h1 {
   font-size: 0.75rem;
 }
 
+.project-shot {
+  margin: clamp(3rem, 7vw, 6rem) 0 0;
+}
+
+.project-shot--main {
+  margin-top: clamp(2.5rem, 6vw, 5rem);
+}
+
+.project-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid #aaa69e;
+  background: #0a1117;
+}
+
+figcaption {
+  margin-top: 0.65rem;
+  color: #696762;
+  font-size: 0.75rem;
+}
+
 .summary {
   max-width: 42rem;
   margin: clamp(3rem, 8vw, 7rem) 0 4rem;
