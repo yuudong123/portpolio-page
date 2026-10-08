@@ -4,6 +4,7 @@ if (!reduceMotion.matches && "IntersectionObserver" in window) {
   const revealGroups = [
     ".project-heading",
     ".carousel",
+    ".project-video",
     ".summary",
     ".details > div",
     ".case-section",

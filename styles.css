@@ -44,6 +44,10 @@ body {
   border-top: 1px solid #171717;
 }
 
+.project-body {
+  min-width: 0;
+}
+
 .project-index {
   padding-top: 0.6rem;
   color: #696762;
@@ -84,6 +88,37 @@ body {
   border-radius: 999px;
   color: #55524d;
   font-size: 0.75rem;
+}
+
+.project-video {
+  margin: 2.5rem 0 0;
+}
+
+.project-video-frame {
+  aspect-ratio: 16 / 9;
+  background: #171717;
+}
+
+.project-video iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.project-video figcaption {
+  margin-top: 0.9rem;
+  color: #696762;
+  font-size: 0.8rem;
+  line-height: 1.7;
+  word-break: keep-all;
+}
+
+.project-video figcaption span {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: #171717;
+  font-weight: 700;
 }
 
 .carousel {
@@ -362,6 +397,11 @@ dd {
 
   .project-heading {
     gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .project-title {
+    font-size: clamp(2.5rem, 10vw, 3.5rem);
   }
 
   .details div {

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="조현재의 프로젝트 기록" />
     <title>조현재 — Projects</title>
-    <link rel="stylesheet" href="./styles.css?v=9" />
+    <link rel="stylesheet" href="./styles.css?v=10" />
   </head>
   <body>
     <header class="site-header">
@@ -14,14 +14,114 @@
     </header>
 
     <main>
-      <article class="project">
+      <article class="project" id="cqc">
         <div class="project-index" aria-hidden="true">01</div>
 
         <div class="project-body">
           <div class="project-heading">
             <div>
+              <p class="meta">Team project · 2026.09—10</p>
+              <h1 class="project-title">CQC</h1>
+            </div>
+            <span class="status">진행 중</span>
+          </div>
+
+          <figure class="project-video">
+            <div class="project-video-frame">
+              <!-- 학원 유튜브에 시연영상이 올라오면 아래 src의 영상 ID를 교체한다. -->
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/aqz-KE-bpKQ"
+                title="CQC 시연영상 자리 — 임시 샘플 영상 Big Buck Bunny"
+                width="960"
+                height="540"
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                aria-describedby="cqc-video-note"
+              ></iframe>
+            </div>
+            <figcaption id="cqc-video-note">
+              <span>시연영상 준비 중</span>
+              현재는 임시 샘플 영상입니다. 학원 유튜브에 올라갈 CQC 시연영상으로 교체할 예정입니다.
+            </figcaption>
+          </figure>
+
+          <p class="summary">
+            사과의 다각도 이미지를 분석해 부사·양광 품종과 특·상·보통 등급을
+            판정하고, 가상 선별부터 검사 이력과 농가 전용 관제까지 연결하는
+            품질 검사 시스템.
+          </p>
+
+          <dl class="details">
+            <div>
+              <dt>Role</dt>
+              <dd>데이터 분석 · 다각도 분류 모델 · 추론 API · 품질 관제 UI</dd>
+            </div>
+            <div>
+              <dt>Team</dt>
+              <dd>4명</dd>
+            </div>
+            <div>
+              <dt>Stack</dt>
+              <dd>Python · PyTorch · Next.js · React · TypeScript · FastAPI · MySQL · Docker · Jenkins</dd>
+            </div>
+            <div>
+              <dt>Built</dt>
+              <dd>다각도 품종·등급 판정 · 저신뢰 재검사 분기 · 가상 선별 · 관제·품질 관리 화면</dd>
+            </div>
+            <div>
+              <dt>Status</dt>
+              <dd>기능 구현·서버 통합 완료, 공동 수용시험과 최종 모델 검증 진행 중</dd>
+            </div>
+          </dl>
+
+          <div class="case-study">
+            <section class="case-section">
+              <p class="case-label">What I did</p>
+              <h3>담당 작업</h3>
+              <ul class="work-list">
+                <li>사과 이미지·라벨 25,024쌍을 검증하고, 같은 사과가 학습·검증에 섞이지 않도록 179개 개체 단위로 데이터 분할</li>
+                <li>다각도 모델 50개 설정을 비교해 대표 12장 입력을 선정하고, 품종·품질별 모델과 신뢰도 보정·HTTP 추론 API 구현</li>
+                <li>실제 Backend와 연결한 품질 관제·관리 화면 구현: 검사 이력, 통계·CSV, 검수 이미지 관리와 시연 제어</li>
+              </ul>
+            </section>
+
+            <section class="case-section">
+              <p class="case-label">Design decisions</p>
+              <h3>확신하기 어려운 사과는 재검사로 보내기</h3>
+              <p>
+                등급 결과만 보여주면 모델이 애매하게 판단한 사과도 정상 선별될 수 있다.
+                품종·품질 신뢰도를 각각 보정하고, 저신뢰·시간 초과·오류는
+                재검사로 분기하도록 구성했다. 관제 화면에서는 재검사율과
+                시스템 상태를 확인하고, 품질 관리 화면에서 해당 이미지를 검토할 수 있다.
+              </p>
+              <p>
+                실제 선별 장비 대신 가상 제어를 사용하며, 당도는 시연용 가상값이다.
+                선별 이후 경매·가상 결제·배차·배송 흐름은 확장 시연으로 구성했다.
+              </p>
+            </section>
+          </div>
+
+          <a
+            class="project-link"
+            href="https://github.com/yuudong123/CQC"
+            target="_blank"
+            rel="noreferrer"
+          >
+            GitHub에서 보기 <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-index" aria-hidden="true">02</div>
+
+        <div class="project-body">
+          <div class="project-heading">
+            <div>
               <p class="meta">Team project · 2026.08—09</p>
-              <h1 class="project-title">HydroTwin</h1>
+              <h2 class="project-title">HydroTwin</h2>
             </div>
             <span class="status">완료</span>
           </div>
@@ -134,7 +234,7 @@
       </article>
 
       <article class="project">
-        <div class="project-index" aria-hidden="true">02</div>
+        <div class="project-index" aria-hidden="true">03</div>
 
         <div class="project-body">
           <div class="project-heading">
@@ -221,6 +321,6 @@
       </article>
     </main>
     <script src="./carousel.js?v=1"></script>
-    <script src="./animation.js?v=1"></script>
+    <script src="./animation.js?v=2"></script>
   </body>
 </html>
