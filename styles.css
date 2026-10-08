@@ -300,6 +300,15 @@ dd {
   word-break: keep-all;
 }
 
+.case-section a {
+  color: inherit;
+  text-underline-offset: 0.2em;
+}
+
+.case-section a:hover {
+  opacity: 0.55;
+}
+
 .work-list {
   margin: 0;
   padding: 0;

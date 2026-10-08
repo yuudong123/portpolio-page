@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="조현재의 프로젝트 기록" />
     <title>조현재 — Projects</title>
-    <link rel="stylesheet" href="./styles.css?v=10" />
+    <link rel="stylesheet" href="./styles.css?v=11" />
   </head>
   <body>
     <header class="site-header">
@@ -71,6 +71,10 @@
               <dd>다각도 품종·등급 판정 · 저신뢰 재검사 분기 · 가상 선별 · 관제·품질 관리 화면</dd>
             </div>
             <div>
+              <dt>Demo</dt>
+              <dd>당도·선별 제어는 가상 시연, 경매·가상 결제·배차·배송은 확장 시연</dd>
+            </div>
+            <div>
               <dt>Status</dt>
               <dd>기능 구현·서버 통합 완료, 공동 수용시험과 최종 모델 검증 진행 중</dd>
             </div>
@@ -87,18 +91,56 @@
               </ul>
             </section>
 
-            <section class="case-section">
-              <p class="case-label">Design decisions</p>
-              <h3>확신하기 어려운 사과는 재검사로 보내기</h3>
+            <section class="case-section" id="cqc-calibration">
+              <p class="case-label">Troubleshooting 01</p>
+              <h3>맞힌 사과도 재검사로 보내던 신뢰도 문제</h3>
               <p>
-                등급 결과만 보여주면 모델이 애매하게 판단한 사과도 정상 선별될 수 있다.
-                품종·품질 신뢰도를 각각 보정하고, 저신뢰·시간 초과·오류는
-                재검사로 분기하도록 구성했다. 관제 화면에서는 재검사율과
-                시스템 상태를 확인하고, 품질 관리 화면에서 해당 이미지를 검토할 수 있다.
+                모델이 정답을 맞혀도 신뢰도가 낮아 재검사로 보내는 경우가 많았다.
+                개발 데이터 152개 사과의 교차검증 예측을 확인하니 재검사율은
+                23.7%였고, 품질 예측 확률과 실제 정답률 사이의 보정 오차(ECE)는 0.259였다.
               </p>
               <p>
-                실제 선별 장비 대신 가상 제어를 사용하며, 당도는 시연용 가상값이다.
-                선별 이후 경매·가상 결제·배차·배송 흐름은 확장 시연으로 구성했다.
+                모델을 다시 학습하기 전에 확률이 실제 정답률을 반영하는지부터 점검했다.
+                개발 교차검증 예측에 온도 보정을 적용하고, 자동 선별 기준을
+                품종 0.50·품질 0.60으로 다시 정했다. 예측 라벨과 모델 가중치는
+                유지한 채 설정 파일만 바꿔 추론 서비스에 반영했다.
+              </p>
+              <p>
+                같은 개발 자료에서 재검사율은 <strong>23.7% → 16.4%</strong>,
+                품질 보정 오차는 <strong>0.259 → 0.081</strong>로 줄었다.
+                자동 처리 구간의 품질 정확도도 92.2% → 92.9%로 유지됐다.
+                결과는 개발 교차검증 기준으로 기록하고, 새로운 사과에 대한 최종 검증은 별도로 남겼다.
+              </p>
+              <p>
+                <a href="https://github.com/yuudong123/CQC/blob/dev/docs/wbs/results/v2-calibration-oof-20260930.json" target="_blank" rel="noreferrer">보정 전후 측정 결과 보기 ↗</a>
+              </p>
+            </section>
+
+            <section class="case-section" id="cqc-collaboration">
+              <p class="case-label">Troubleshooting 02</p>
+              <h3>흘러가던 파트 간 요청을 GitHub 이슈로 연결하기</h3>
+              <p>
+                4명이 데이터·모델, 화면, Backend, 배포를 나눠 맡고 각자 AI 에이전트와 작업했다.
+                디스코드로 요청과 결과를 공유하다 보니 담당자와 완료 여부를 다시 찾기 어려웠고,
+                필수 기능인 ‘처리 중 사과 표시’도 담당 이슈 없이 남아 서버 화면에서야 누락을 발견했다.
+              </p>
+              <p>
+                이슈 #39에 제목 <strong>[담당][WBS]</strong>, 파트·종류·우선순위 라벨과
+                요청·버그·결과·결정 양식을 정리했다. 사람과 에이전트가 같은 이슈에서
+                <strong>요청 → 계획 댓글 → 담당자 확인 → 결과·PR → 병합·종료</strong>를
+                추적하도록 하고, 결과 댓글에는 측정값과 다른 파트에 미치는 영향까지 남겼다.
+              </p>
+              <p>
+                실제 협업 사례인 이슈 #53에서는 화면 담당이 미리보기 이미지의 용량과
+                만료 응답을 측정해 Backend에 축소본·표시 유예를 요청했다.
+                Backend의 최근 완료 사과 응답과 FE의 1초 조회·마지막 사과 유지 기능을
+                맞춘 뒤, 배포 화면에서 <strong>14초 동안 들어온 사과 7개가 모두 표시</strong>되는 것을 확인했다.
+                요청부터 수정·서버 확인·사용자 확인 후 종료까지 한 이슈에 남아,
+                다른 파트의 변경과 해결 근거를 대화마다 다시 전달할 필요가 줄었다.
+              </p>
+              <p>
+                <a href="https://github.com/yuudong123/CQC/issues/39" target="_blank" rel="noreferrer">이슈 운영 규칙 #39 ↗</a>
+                · <a href="https://github.com/yuudong123/CQC/issues/53" target="_blank" rel="noreferrer">FE·BE 협업과 배포 확인 #53 ↗</a>
               </p>
             </section>
           </div>
