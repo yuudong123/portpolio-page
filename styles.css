@@ -121,6 +121,31 @@ body {
   font-weight: 700;
 }
 
+.project-image {
+  margin: clamp(2.5rem, 6vw, 5rem) 0 0;
+}
+
+.project-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 32rem;
+  object-fit: contain;
+  background: #e6e3dc;
+}
+
+.project-image figcaption {
+  margin-top: 0.9rem;
+  color: #696762;
+  font-size: 0.8rem;
+  line-height: 1.7;
+}
+
+.project-image a {
+  color: inherit;
+  text-underline-offset: 0.2em;
+}
+
 .carousel {
   position: relative;
   margin-top: clamp(2.5rem, 6vw, 5rem);

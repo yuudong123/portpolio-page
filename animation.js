@@ -5,6 +5,7 @@ if (!reduceMotion.matches && "IntersectionObserver" in window) {
     ".project-heading",
     ".carousel",
     ".project-video",
+    ".project-image",
     ".summary",
     ".details > div",
     ".case-section",
